@@ -1,0 +1,173 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <link rel="icon" type="image/png" href="favicon.png" />
+  <link rel="stylesheet" type="text/css" href="style.css" media="screen">
+
+  <!-- <style type="text/css"> 
+  h1 {color: red ;text-align: center;}
+  body{background-color: palegreen; font-weight: bold;}
+  input{font-weight: bold;}
+  img{width:200;height:200} 
+  </style> -->
+  
+  <script>
+  
+  // function slideShow() { 
+  //   // массив картинок
+  //   ris = new Array('img/frog0.jpg', 'img/frog1.jpg', 'img/frog2.jpg', 'img/frog3.jpg'); 
+  //   // Проверяем, Не вышел ли счётчик за пределы массива 
+  //   if (i >= 4)   i = 0; // если вышел, обнуляем счётчик. 
+  //   //переменная r объект с именем slide
+  //   r=document.getElementById('slide');
+  //   // Меняем свойство src этого объекта на элемент из массива 
+  //   r.src=ris[i];   
+  //   i++;   // Увеличиваем счётчик
+  //   // вызываем эту же функцию через каждые 1500 мс
+  //   setTimeout("slideShow()",1500);
+  // }
+  function sqr() {
+    // переменная р объект с именем t
+    var p=document.getElementById('t');
+    // переменная r содержит значение свойства value этого объекта
+    r=p.value;
+    var s= Math.PI*r*r;
+    alert(s)
+  }
+  function mouselog(namePic){
+    t.value = namePic;
+  }
+  i=0; 
+  function slideShow(btnID){
+    ris = new Array('img/frog0.jpg', 'img/frog1.jpg', 'img/frog2.jpg', 'img/frog3.jpg');
+    
+    var id = btnID
+    if(btnID === "backward"){
+      i--;
+      if (i < 0) i = 3;
+      r = document.getElementById('slide');
+      r.src = ris[i];
+      
+    }
+    else if(btnID === "forward"){
+      i++;
+      if (i >= 4)   i = 0;
+      r = document.getElementById('slide');
+      r.src = ris[i];
+      
+    }
+
+  }
+  function showImg(idCol){
+    ris = new Array('img/frog0.jpg', 'img/frog1.jpg', 'img/frog3.jpg');
+    if(idCol === "col1") dd.src = ris[0];
+    else if(idCol === "col2") dd.src = ris[1];
+    else if(idCol === "col3") dd.src = ris[2];
+  }
+  function hideImg(){
+    dd.src = 'img/empty.png';
+  }
+  function calc(){
+    str = prompt("Введите первое число: ", "0")
+    x = parseInt(str)
+    znak = prompt("Введите знак: ")
+    str = prompt("Введите второе число: ", "0")
+    y = parseInt(str)
+    if (y === 0)
+      alert("На нуль делить нельзя!")
+    else{
+      if (znak === "+") s = x + y;
+      else if (znak === "-") s = x - y;
+      else if (znak === "*") s = x * y;
+      else if (znak === "/") s = x / y;
+      else alert("Введен неверный знак!");
+      alert("Результат: "+s);
+    }
+    
+  }
+  
+  </script>
+</head>
+<body>
+  <!-- <div>
+  <h1> слайд-шоу </h1>
+  <img id='slide' src="img/frog0.jpg" />
+  <form>
+  <input type="button" value=" Начать " onClick="slideShow() ;">
+  </form>
+</div>
+<div>
+  <hr>
+  <form>
+    Радиус:
+    <input type="text" value="1" id="t" size="5">
+    <input type="button" value="Площадь" onclick="sqr()">
+  </hr></form>
+</div> -->
+
+<!-- <div>
+  <h1>Продаются автомобили</h1>
+  <div class="img_lt">
+    <img id="fr0" src="img/frog0.jpg"/>
+    <img id="fr1" src="img/frog1.jpg"/>
+  </div>
+  <div class="img_lt"></div>
+    <img id="fr2" src="img/frog2.jpg"/>
+    <img id="fr3" src="img/frog3.jpg"/>
+  </div>
+</div> -->
+
+
+<!--1-->
+<div class="container">
+<table><caption>Продаются фроги!</caption>
+  <tr >
+    <td><img id="fr0 1000" src="img/frog0.jpg" onmouseover="mouselog(id)"/></td>
+    <td><img id="fr1 900" src="img/frog1.jpg" onmouseover="mouselog(id)"/></td>
+  </tr>
+  <tr>
+    <td><img id="fr2 1500" src="img/frog2.jpg" onmouseover="mouselog(id)"/></td>
+    <td><img id="fr3 2000" src="img/frog3.jpg" onmouseover="mouselog(id)"/></td>
+  </tr>
+</table>
+<input type="text" id="t" name="t" size="30">
+</div >
+<!--1-->
+<!----->
+<!--2-->
+<div class="container">
+  <div>
+  <h1 style="margin-bottom: 5px;">слайд-шоу</h1>
+  <img id="slide"  src="img/frog0.jpg" />
+  </div>  
+  <div class="btn-container">
+  <input type="button" id="backward" class="btn" value="Назад" onclick="slideShow(id)">
+  <input type="button"  id="forward" class="btn" value="Вперед" onclick="slideShow(id)">
+  </div>
+</div>
+<!--2-->
+<!----->
+<!--3-->
+<div class="container">
+  <table  width="100%" height="100%" cellpadding="10">
+    
+    <caption>Наведите курсор на название лягушки</caption>
+    <tr>
+      <td id="col1" onmouseover="showImg(id)" onmouseout="hideImg()">Лягуха с цветочком</td>
+      <td  rowspan="3" style="text-align: center;"><img  id="dd" src="img/empty.png"></td>
+    </tr>
+    <tr id="col2" onmouseover="showImg(id)" onmouseout="hideImg()"><td>Лягуха на листике</td></tr>
+    <tr id="col3" onmouseover="showImg(id)" onmouseout="hideImg()"><td>Лягуха на бамбуке</td></tr>
+  </table>
+</div>
+<!--3-->
+<!----->
+<!--5-->
+
+  <input style="position:absolute; top: 38%; left: 38%;" class="btn" type="button" value="Посчитаем!" onclick="calc()">
+
+</body>
+</html>
