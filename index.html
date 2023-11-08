@@ -37,6 +37,8 @@
     var s= Math.PI*r*r;
     alert(s)
   }
+
+
   function mouselog(namePic){
    
     if (namePic === 'fr0') t.value = 'Подозрительная 900';
@@ -92,18 +94,62 @@
     }
     
   }
-  function showDate(){
-    months = new Array('Января', 'Февраля', 'Марта', 'Апреля', 'Майя', 
+  months = new Array('Января', 'Февраля', 'Марта', 'Апреля', 'Майя', 
     'Июня','Июля','Августа','Сентября', 'Октября','Ноября','Декабря');
-    weeks = new Array('Понедельник', 'Вторник', 'Среда', 'Четверг', 
-    'Пятница', 'Суббота', 'Воскресенье');
+    weeks = new Array('понедельник', 'вторник', 'среда', 'четверг', 
+    'пятница', 'суббота', 'воскресенье');
+  function showDate(){
+
     var todayDate = new Date();
     monthID = todayDate.getMonth();
     weekID = todayDate.getDay();
     var year = todayDate.getYear();
     document.write('Сегодня '+todayDate.getDate()+' '+months[monthID]+' '+todayDate.getFullYear()+' года '+ weeks[weekID])
   }
-  
+  function lengthXY(){
+    x = parseInt(document.getElementById('xVal').value);
+    y = parseInt(document.getElementById('yVal').value);
+    var x1 = Math.pow(x,2);
+    var y1 = Math.pow(y,2);
+    var res = Math.sqrt((x1+y1));
+    alert(res);
+  }
+  function go1(){
+    // var headerr = document.getElementById('txtHeader').value;
+    // var textt = headerr.value
+    pic = 'img/empty.png'
+    if (document.getElementById('cbDog').checked) pic = 'img/frog0.jpg';
+    else if(document.getElementById('cbFlower').checked) pic = 'img/frog1.jpg';
+    else if(document.getElementById('cbBouquet').checked) pic = 'img/frog2.jpg';
+
+    if(document.getElementById('k1').selected) bg = 'white';
+    if(document.getElementById('k2').selected) bg = 'blue';
+    if(document.getElementById('k3').selected) bg = 'red';
+
+    if(document.getElementById('whh').checked) tt = 'white';
+    if(document.getElementById('bll').checked) tt = 'blue';
+    if(document.getElementById('redd').checked) tt = 'red';
+    var win=window.open("","","width=500,height=500");
+      win.document.open();
+      // переменная st содержит
+      // сформированную таблицу стилей нового документа
+      var st="<head>\
+        <style>h2{color:"+tt+";}</style></head>"
+      win.document.write(st);
+      
+      var st="<body style='background:"+bg+"'>\
+        <h2>"+document.getElementById('txtHeader').value+"</h2>\
+        <div>\
+          <img id='picAnketa' src='"+pic+"'</div>\
+        <div>\
+          <h2>"+document.getElementById('txtHeaderPodp').value+"</h2>\
+        </div>\
+        <div>\
+          <input type=button value='Закрыть' OnClick='window.close();'></div>\
+        </body>";
+      win.document.write(st);
+      win.document.close();
+  }
   </script>
 </head>
 <body>
@@ -185,14 +231,17 @@
 <!--5-->
 <!----->
 <!--6-->
+<form>
 <input style="position:absolute; top: 38%; left: 46.5%;" class="btn" type="button" value="Показать дату" onclick="showDate()">
+</form>
 <!--6-->
 <!----->
 <!--7-->
-
-<h2 style='position:absolute; top: 38%; left: 60%;'>Я прожил всего </h2>
-<input style='position:absolute; top: 37%; left: 63.8%;' type='text' id="result" size=8>
-<h2 style='position:absolute; top: 38%; left: 80%;'> дней</h2>
+<form>
+<h2 style='position:absolute; top: 34%; left: 60%;'>Я прожил всего </h2>
+<input style='position:absolute; top: 33%; left: 63.8%;' type='text' id="result" size=8>
+<h2 style='position:absolute; top: 34%; left: 80%;'> дней</h2>
+</form>
 <script>
   var today = new Date();
   var ty = today.getFullYear();
@@ -207,6 +256,87 @@
   day = day / (86400000) +1;
   day = Math.floor(day)
   result.value = day;
+  /*9*/
+  document.write("<h2 id='MyBD'>Я родился "+birthDay.getDate()+" "+months[birthDay.getMonth()]+" "
+    +Byear+" года в "+weeks[birthDay.getDay()]+"</h2>")
+  /*9*/
 </script>
+<!--7-->
+<!----->
+<!--8-->
+<div id="cont1">
+<h4>Расстояние от точки до начала координат</h4>
+<form>
+  <hr>
+  X:
+  <input type="text" value="0" id="xVal" name="xVal" size="5">
+  </hr> 
+  <hr>
+  Y: 
+  <input type="text" value="0" id="yVal" name="yVal" size="5">
+  </hr>
+  <input class="btn" type="button" value="Расстояние" id="btn1" onclick="lengthXY()">
+</form>
+</div>
+<!--8-->
+<!----->
+<!--10-->
+<form>
+  <h2 style='position:absolute; top: 42%; left: 60%;'>До каникул осталось </h2>
+  <input style='position:absolute; top: 41%; left: 68.3%;' type='text' id="daysBeforeHolid" size=8>
+  <h2 style='position:absolute; top: 42%; left: 84.5%;'> дней</h2>
+</form>
+<script>
+  currentDate = new Date();
+  juneFirst = new Date(currentDate.getFullYear()+1, 5, 1);
+  timeDiff = juneFirst.getTime() - currentDate.getTime();
+  daysDiff = Math.ceil(timeDiff / (1000 * 3600 * 24)); 
+  daysBeforeHolid.value = daysDiff; 
+</script>
+<!--10-->
+<!------>
+<!--11-->
+<div class="container">
+  <h1>Страничка по заказу</h1>
+<form>
+  <h4>Заголовок
+  <input style="position: relative; left: -130px;" type="text" id="txtHeader" size="30">
+  </h4>
+  <h4 style="position: relative; top: 30px">Картинка</h4>
+  <h4 id="dogCombo"><input type="checkbox" style="position:relative; left: -20px;" id="cbDog" name="cbDog"/>Лягуха 1</h4>
+  <h4 id="flCombo"><input type="checkbox" style="position:relative; left: -20px;" id="cbFlower" name="cbFlower"/>Лягуха 2</h4>
+  <h4 id="bouqCombo"><input type="checkbox" style="position:relative; left: -20px;" id="cbBouquet" name="cbBouquet"/>Лягуха 3</h4>
+  <h4 id="podp" style="position: absolute; top: 99%;">Подпись
+    <input style="position: relative; left: -130px;" type="text" id="txtHeaderPodp" size="50">
+    </h4>
+  <h4>Цвет фона</h4>
+  <select style="position: relative; top: 10px;">
+    <option id="k1"> Белый</option>
+    <option id="k2"> Синий</option>
+    <option id="k3"> Красный</option>
+  </select>
+  
+  <table id="table1">
+    <tr>
+        <td class="white"></td>
+    </tr>
+    <tr>
+        <td class="blue"></td>
+    </tr>
+    <tr>
+        <td class="red"></td>
+    </tr>
+  </table>
+  <h4 style="position: relative; top: -140px; left:  48%;">Цвет текста</h5>
+  <h5 id="wh"><input type="radio" id="whh" name="color" value="white"> White</h5>
+  <h5 id="bl"><input type="radio" id="bll" name="color" value="blue"> Blue</h5>
+  <h5 id="re"><input type="radio" id="redd" name="color" value="red"> Red</h5>
+
+    <input class="btn1" type="button" value="Сброс">
+    <input class="btn1"  style="position: relative; left: 60px;" type="button" value="Показать" onclick="go1()">
+
+  </form>
+</div>
+
 </body>
 </html>

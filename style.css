@@ -45,6 +45,14 @@ input{
   margin: 5px 10px;
   cursor: pointer;
 }
+.btn1{
+  padding: 5px 20px;
+  margin: 5px 10px;
+  cursor: pointer;
+  position: relative;
+  top: -100px;
+  left: 20;
+}
 .container{
   display: inline-block;
   vertical-align: top;
@@ -58,6 +66,76 @@ th, td {
   border: 1px solid black;
   
 }
+#xVal{
+  position:relative;
+  left: -150px;
+}
+#yVal{
+  position: relative;
+  left: -150px;
+}
+#btn1{
+  position: relative;
+  top: -20px;
+  left: -100px;
+}
+#cont1{
+  position: relative;
+  top: -120px;
+  left: 38.5%;
+}
+#MyBD{
+  position: relative;
+  top: -195px;
+  left: 60%;
+}
+#dogCombo{
+  position: relative;
+  top: -25px;
+  left: -17.5px;
+}
+#flCombo{
+  position: relative;
+  top: -30px;
+  left: -17.5px;
+}
+#bouqCombo{
+  position: relative;
+  top: -35px;
+  left: -17.5px;
+}
+
+td {
+  height: 30px;
+}  
+#table1 {
+  position: relative;
+  top: -15px;
+  left: 90px;
+  border-collapse: collapse;
+  width: 100px;
+}
+#wh, #bl, #re{
+  position: relative;
+  top: -125px;
+  left: 15%;
+}
+.white {
+  
+  background-color: white;
+}
+.blue {
+  background-color: blue;
+}
+.red {
+  background-color: red;
+}
+
+/* #cont1, #task3, #task4, #task5{
+  position: relative;
+  margin-left: auto;
+  margin-right: auto;
+} */
 
 
 
@@ -273,7 +351,7 @@ footer a:link, footer a:visited, footer a:hover, footer a:active {
 address, footer span {
   font-size: 75%;
 }
-}
+
 
 /* !!! Правила, определяющие мобильную версию для смартфонов !!! */
 @media only screen and (max-width:620px) {
