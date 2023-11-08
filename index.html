@@ -38,7 +38,11 @@
     alert(s)
   }
   function mouselog(namePic){
-    t.value = namePic;
+   
+    if (namePic === 'fr0') t.value = 'Подозрительная 900';
+    else if (namePic === 'fr1') t.value = 'Наблюдательная 1000';
+    else if (namePic === 'fr2') t.value = 'Отдыхающая 1500';
+    else if (namePic === 'fr3') t.value = 'Мини-йода 2000';
   }
   i=0; 
   function slideShow(btnID){
@@ -88,6 +92,17 @@
     }
     
   }
+  function showDate(){
+    months = new Array('Января', 'Февраля', 'Марта', 'Апреля', 'Майя', 
+    'Июня','Июля','Августа','Сентября', 'Октября','Ноября','Декабря');
+    weeks = new Array('Понедельник', 'Вторник', 'Среда', 'Четверг', 
+    'Пятница', 'Суббота', 'Воскресенье');
+    var todayDate = new Date();
+    monthID = todayDate.getMonth();
+    weekID = todayDate.getDay();
+    var year = todayDate.getYear();
+    document.write('Сегодня '+todayDate.getDate()+' '+months[monthID]+' '+todayDate.getFullYear()+' года '+ weeks[weekID])
+  }
   
   </script>
 </head>
@@ -125,12 +140,12 @@
 <div class="container">
 <table><caption>Продаются фроги!</caption>
   <tr >
-    <td><img id="fr0 1000" src="img/frog0.jpg" onmouseover="mouselog(id)"/></td>
-    <td><img id="fr1 900" src="img/frog1.jpg" onmouseover="mouselog(id)"/></td>
+    <td><img id="fr0" src="img/frog0.jpg" onmouseover="mouselog(id)"/></td>
+    <td><img id="fr1" src="img/frog1.jpg" onmouseover="mouselog(id)"/></td>
   </tr>
   <tr>
-    <td><img id="fr2 1500" src="img/frog2.jpg" onmouseover="mouselog(id)"/></td>
-    <td><img id="fr3 2000" src="img/frog3.jpg" onmouseover="mouselog(id)"/></td>
+    <td><img id="fr2" src="img/frog2.jpg" onmouseover="mouselog(id)"/></td>
+    <td><img id="fr3" src="img/frog3.jpg" onmouseover="mouselog(id)"/></td>
   </tr>
 </table>
 <input type="text" id="t" name="t" size="30">
@@ -166,8 +181,32 @@
 <!--3-->
 <!----->
 <!--5-->
+<input style="position:absolute; top: 38%; left: 38%;" class="btn" type="button" value="Посчитаем!" onclick="calc()">
+<!--5-->
+<!----->
+<!--6-->
+<input style="position:absolute; top: 38%; left: 46.5%;" class="btn" type="button" value="Показать дату" onclick="showDate()">
+<!--6-->
+<!----->
+<!--7-->
 
-  <input style="position:absolute; top: 38%; left: 38%;" class="btn" type="button" value="Посчитаем!" onclick="calc()">
+<h2 style='position:absolute; top: 38%; left: 60%;'>Я прожил всего </h2>
+<input style='position:absolute; top: 37%; left: 63.8%;' type='text' id="result" size=8>
+<h2 style='position:absolute; top: 38%; left: 80%;'> дней</h2>
+<script>
+  var today = new Date();
+  var ty = today.getFullYear();
+  var yearBegin = new Date(ty,0,1);
 
+  Byear = prompt("Введите год рождения: ", "1");
+  Bmonth = prompt("Введите номер месяца вашего рождедния: ", "1");
+  Bday = prompt("Введите день рождения: ", "1");
+  
+  var birthDay = new Date(Byear, Bmonth-1, Bday);
+  var day = today.getTime() - birthDay.getTime();
+  day = day / (86400000) +1;
+  day = Math.floor(day)
+  result.value = day;
+</script>
 </body>
 </html>
