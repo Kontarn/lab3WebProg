@@ -51,7 +51,13 @@ input{
   cursor: pointer;
   position: relative;
   top: -100px;
-  left: 20;
+}
+.btn2{
+  padding: 5px 20px;
+  margin: 5px 10px;
+  cursor: pointer;
+  position: relative;
+  top: -100px;
 }
 .container{
   display: inline-block;
@@ -130,7 +136,11 @@ td {
 .red {
   background-color: red;
 }
-
+#fr1Combo, #fr2Combo, #fr3Combo{
+  position: relative;
+  left: 100px;
+  top: -105px;
+}
 /* #cont1, #task3, #task4, #task5{
   position: relative;
   margin-left: auto;

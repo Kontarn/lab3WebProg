@@ -150,6 +150,19 @@
       win.document.write(st);
       win.document.close();
   }
+  function go2(){
+      var win = window.open("","", "width=500,height=500");
+      win.document.open();
+      var st="<head><style>h1{font-size: 140%;}</style></head><body>\
+        <h1>О себе</h1>\
+        Я, "+document.getElementById('secName').value+" "+document.getElementById('firName').value+" "+
+        document.getElementById('lstName').value+" родился в "+document.getElementById('birthD').value+" году в городе "
+        +document.getElementById('hometown').value+"<br><br>"
+        +"Больше всего я люблю " +document.getElementById('FaveHobby').value+" и очень не люблю "+
+        document.getElementById('notFaveHobby').value+"."+"</body>";
+      win.document.write(st);
+      win.document.close();
+  }
   </script>
 </head>
 <body>
@@ -280,7 +293,7 @@
 </div>
 <!--8-->
 <!----->
-<!--10-->
+<!--9-->
 <form>
   <h2 style='position:absolute; top: 42%; left: 60%;'>До каникул осталось </h2>
   <input style='position:absolute; top: 41%; left: 68.3%;' type='text' id="daysBeforeHolid" size=8>
@@ -293,9 +306,9 @@
   daysDiff = Math.ceil(timeDiff / (1000 * 3600 * 24)); 
   daysBeforeHolid.value = daysDiff; 
 </script>
-<!--10-->
+<!--9-->
 <!------>
-<!--11-->
+<!--10-11-->
 <div class="container">
   <h1>Страничка по заказу</h1>
 <form>
@@ -327,7 +340,7 @@
         <td class="red"></td>
     </tr>
   </table>
-  <h4 style="position: relative; top: -140px; left:  48%;">Цвет текста</h5>
+  <h4 style="position: relative; top: -140px; left:  48%;">Цвет текста</h4>
   <h5 id="wh"><input type="radio" id="whh" name="color" value="white"> White</h5>
   <h5 id="bl"><input type="radio" id="bll" name="color" value="blue"> Blue</h5>
   <h5 id="re"><input type="radio" id="redd" name="color" value="red"> Red</h5>
@@ -337,6 +350,46 @@
 
   </form>
 </div>
+<!--10-11-->
+<!--------->
+<!---->
+<!-- <div class="container">
+  <h1>Страничка по заказу</h1>
+  <h4>Художник
+    <select style="position: relative; ">
+      <option id="k1">Первый</option>
+      <option id="k2">Второй</option>
+      <option id="k3">Третий</option>
+    </select>
+  </h4>
+  <h4>Подпись
+    <input style="position: relative; left: -140px;" type="text" id="signArt" size="40">
 
+  </h4>
+  <h4>Картинка для фона</h4>
+    <h5 id="frog2.jpg" style="position: relative; left: -25%;"><input type="radio" id="pic1" name="pic1" value="first"> Фон 1</h5>
+    <h5 id="frog3.jpg" style="position: relative; left: -25%;"><input type="radio" id="pic2" name="pic1" value="second"> Фон 2</h5>
+    <h5 id="frog1.jpg" style="position: relative; left: -25%;"><input type="radio" id="pic3" name="pic1" value="third"> Фон 3</h5>
+  
+  <h4 style="position: relative;   left:35%; top: -110px">Декорирование текста
+    <h4 id="fr1Combo"><input type="checkbox" style="position:relative; left: -20px;" id="cbDog" name="cbDog"/>Лягуха 1</h4>
+    <h4 id="fr2Combo"><input type="checkbox" style="position:relative; left: -20px;" id="cbFlower" name="cbFlower"/>Лягуха 2</h4>
+    <h4 id="fr3Combo"><input type="checkbox" style="position:relative; left: -20px;" id="cbBouquet" name="cbBouquet"/>Лягуха 3</h4>
+  </h4>
+  <input class="btn2" type="button" value="Сброс" >
+  <input class="btn2" type="button" value="Показать" onclick="go1()">
+</div> -->
+
+<div class="container">
+  <h1>Анкета</h1>
+  <h4>Фамилия: <input style="position: relative; left: -140px;" type="text" id="secName" size="40"></h4>
+  <h4>Имя: <input style="position: relative; left: -140px;" type="text" id="firName" size="40"></h4>
+  <h4>Отчество: <input style="position: relative; left: -140px;" type="text" id="lstName" size="40"></h4>
+  <h4>Год рождения: <input style="position: relative; left: -140px;" type="text" id="birthD" size="40"></h4>
+  <h4>Место рождения: <input style="position: relative; left: -140px;" type="text" id="hometown" size="40"></h4>
+  <h4>Любимое занятие: <input style="position: relative; left: -140px;" type="text" id="FaveHobby" size="40"></h4>
+  <h4>Не любимое занятие: <input style="position: relative; left: -140px;" type="text" id="notFaveHobby" size="40"></h4>
+  <input class="btn" type="button" value="Сформировать биографию" onclick="go2()">
+</div>
 </body>
 </html>
