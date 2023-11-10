@@ -138,8 +138,43 @@ td {
 }
 #fr1Combo, #fr2Combo, #fr3Combo{
   position: relative;
-  left: 100px;
+  left: 50px;
   top: -105px;
+}
+#pageByOrd2{
+  position: relative;
+  left: -9%;
+}
+
+#anketa{
+  position: relative;
+  left: 64%;
+  top: -350px;
+}
+#rectArea{
+  position:relative;
+  left: 65%;
+  top: -220px;
+}
+#txtLengthra{
+  position: relative;
+  left: -7.5%;
+} 
+#txtWidthra{
+  position: relative;
+  left: -8.8%;
+}
+#btn1ra{
+  position: relative;
+  left: 10.7%;
+}
+#anketa, #pageByOrd1, #pageByOrd2{
+  margin-top: -10%;
+}
+#fairyTaleGen {
+  position: relative; 
+  left: -45%;
+  margin-top: -5%;
 }
 /* #cont1, #task3, #task4, #task5{
   position: relative;

@@ -6,29 +6,8 @@
   <meta http-equiv="X-UA-Compatible" content="ie=edge">
   <link rel="icon" type="image/png" href="favicon.png" />
   <link rel="stylesheet" type="text/css" href="style.css" media="screen">
-
-  <!-- <style type="text/css"> 
-  h1 {color: red ;text-align: center;}
-  body{background-color: palegreen; font-weight: bold;}
-  input{font-weight: bold;}
-  img{width:200;height:200} 
-  </style> -->
   
   <script>
-  
-  // function slideShow() { 
-  //   // массив картинок
-  //   ris = new Array('img/frog0.jpg', 'img/frog1.jpg', 'img/frog2.jpg', 'img/frog3.jpg'); 
-  //   // Проверяем, Не вышел ли счётчик за пределы массива 
-  //   if (i >= 4)   i = 0; // если вышел, обнуляем счётчик. 
-  //   //переменная r объект с именем slide
-  //   r=document.getElementById('slide');
-  //   // Меняем свойство src этого объекта на элемент из массива 
-  //   r.src=ris[i];   
-  //   i++;   // Увеличиваем счётчик
-  //   // вызываем эту же функцию через каждые 1500 мс
-  //   setTimeout("slideShow()",1500);
-  // }
   function sqr() {
     // переменная р объект с именем t
     var p=document.getElementById('t');
@@ -159,41 +138,94 @@
         document.getElementById('lstName').value+" родился в "+document.getElementById('birthD').value+" году в городе "
         +document.getElementById('hometown').value+"<br><br>"
         +"Больше всего я люблю " +document.getElementById('FaveHobby').value+" и очень не люблю "+
-        document.getElementById('notFaveHobby').value+"."+"</body>";
+        document.getElementById('notFaveHobby').value+". Было бы замечательно, всю жизнь только "+
+        document.getElementById('FaveHobby').value+", но к сожалению приходится иногда и "+
+        document.getElementById('notFaveHobby').value+"."+"\
+        <div>\
+          <input type=button value='Закрыть' OnClick='window.close();'></div></body>";
       win.document.write(st);
       win.document.close();
+  }
+  function go3(){  /*k1 k2 k3*/ /*pic1 pic2 pic3*/ /*italics underline boldTxt*/
+    
+    var fntStl = 'normal'
+    var fntDcrtn = 'none'
+    var fntWgt = 'normal'
+    pic = 'img/empty.png'
+    HdTxt = ''
+    if (document.getElementById('frgFlwr').selected) {
+      HdTxt = document.getElementById('frgFlwr').value
+      pic = 'img/frog0.jpg'
+    }
+    else if(document.getElementById('frgOnLf').selected) {
+      HdTxt = document.getElementById('frgOnLf').value
+      pic = 'img/frog1.jpg'
+    }
+    else if(document.getElementById('frgOnBamboo').selected){ 
+      HdTxt = document.getElementById('frgOnBamboo').value
+      pic = 'img/frog3.jpg'
+    }
+
+    if (document.getElementById('pic1').checked) BackPic = 'img/forest.jpg';
+    else if (document.getElementById('pic2').checked) BackPic = 'img/lake.jpg';
+    else if(document.getElementById('pic3').checked) BackPic = 'img/swamp.jpg';
+
+    if (document.getElementById('italics').checked) fntStl = 'italic';
+    if (document.getElementById('underline').checked) fntDcrtn = 'underline';
+    if (document.getElementById('boldTxt').checked) fntWgt = 'bold';
+
+    //h2{font-style:"+italTxt+";font-decoration:"+underlnTxt+";font-weight:"+fntWgt+";}
+    var win = window.open("", "", "width=500,height=500");
+    win.document.open();
+    var st = "<head><style>h1, h2{color: red; font-style:"+fntStl+";text-decoration:"+fntDcrtn+";font-weight: "+fntWgt+";}\
+      body{background-image: url("+BackPic+");}</style></head><body><h1>"+HdTxt+"</h1>"+
+         "<img id='picFrg' src='"+pic+"'>\
+         <h2>"+document.getElementById('signArt').value+"</h2>\
+        <div><input type='button' value='Закрыть' onclick='window.close();'></div></body>"
+    win.document.write(st);
+    win.document.close();
+  }
+  function uncheckFrstSite(){
+    document.getElementById("italics").checked = false;
+    document.getElementById("underline").checked = false;
+    document.getElementById("boldTxt").checked = false;
+    document.getElementById("pic1").checked = false;
+    document.getElementById("pic2").checked = false;
+    document.getElementById("pic3").checked = false;
+    document.getElementById("signArt").value = "";
+  }
+  function uncheckScdSite(){
+    document.getElementById("cbDog").checked = false;
+    document.getElementById("cbFlower").checked = false;
+    document.getElementById("cbBouquet").checked = false;
+    document.getElementById("whh").checked = false;
+    document.getElementById("bll").checked = false;
+    document.getElementById("redd").checked = false;
+    document.getElementById("txtHeader").value = "";
+    document.getElementById("txtHeaderPodp").value = "";
+  }
+  function rectangleArea(){
+    length = parseInt(document.getElementById("txtLengthra").value);
+    width = parseInt(document.getElementById("txtWidthra").value);
+    alert(length*width);
+  }
+  function fairyTaleGenerator(){
+    var win = window.open("", "", "width=700  ,height=500");
+    win.document.open();
+    st = "<head></head><body>\
+      <h1>"+document.getElementById("heroName").value+" и "+document.getElementById("favePresent").value+"</h1>\
+      В одном лесу жила маленька "+document.getElementById("heroName").value+", которая очень любила "+document.getElementById("faveoriteHobby").value+".\
+       У нее так хорошо получалось, что весь лес собирался посмотреть на неё! От сороки она узнала, что у людей принято дарить\
+       "+document.getElementById("favePresent").value+" тем, кто нравится. А "+document.getElementById("favePresent").value+" она любила так же сильно как и "+document.getElementById("faveoriteHobby").value
+       +". Долго грустила "+document.getElementById("heroName").value+". Но однажды, после очередной импровизированной демонстрации своего таланта, "+document.getElementById("heroFriend").value+"\
+      подошел к "+document.getElementById("heroName").value+" и подарил ей... "+document.getElementById("favePresent").value+"! Уж он то был истинным джентельменом! "+document.getElementById("heroName").value
+      +" была невероятно счастлива!!!<div><input type='button' value='Закрыть' onclick='window.close();'></div></body>"
+    win.document.write(st);
+    win.document.close();
   }
   </script>
 </head>
 <body>
-  <!-- <div>
-  <h1> слайд-шоу </h1>
-  <img id='slide' src="img/frog0.jpg" />
-  <form>
-  <input type="button" value=" Начать " onClick="slideShow() ;">
-  </form>
-</div>
-<div>
-  <hr>
-  <form>
-    Радиус:
-    <input type="text" value="1" id="t" size="5">
-    <input type="button" value="Площадь" onclick="sqr()">
-  </hr></form>
-</div> -->
-
-<!-- <div>
-  <h1>Продаются автомобили</h1>
-  <div class="img_lt">
-    <img id="fr0" src="img/frog0.jpg"/>
-    <img id="fr1" src="img/frog1.jpg"/>
-  </div>
-  <div class="img_lt"></div>
-    <img id="fr2" src="img/frog2.jpg"/>
-    <img id="fr3" src="img/frog3.jpg"/>
-  </div>
-</div> -->
-
 
 <!--1-->
 <div class="container">
@@ -308,8 +340,19 @@
 </script>
 <!--9-->
 <!------>
-<!--10-11-->
-<div class="container">
+<!--10-->
+<div id="rectArea">
+<form >
+  <h3>Площадь прямоугольника</h2>
+  <h4>Длина: <input type="text" id="txtLengthra"></h4>
+  <h4>Ширина: <input type="text" id="txtWidthra"></h4>
+  <h4><input type="button" class="btn" id="btn1ra" value="Площадь" onclick="rectangleArea()"></h4>
+</form>
+</div>
+<!--10-->
+<!------>
+<!--10-->
+<div class="container" id="pageByOrd1" >
   <h1>Страничка по заказу</h1>
 <form>
   <h4>Заголовок
@@ -319,7 +362,7 @@
   <h4 id="dogCombo"><input type="checkbox" style="position:relative; left: -20px;" id="cbDog" name="cbDog"/>Лягуха 1</h4>
   <h4 id="flCombo"><input type="checkbox" style="position:relative; left: -20px;" id="cbFlower" name="cbFlower"/>Лягуха 2</h4>
   <h4 id="bouqCombo"><input type="checkbox" style="position:relative; left: -20px;" id="cbBouquet" name="cbBouquet"/>Лягуха 3</h4>
-  <h4 id="podp" style="position: absolute; top: 99%;">Подпись
+  <h4 id="podp" style="position: relative; top: 99%;">Подпись
     <input style="position: relative; left: -130px;" type="text" id="txtHeaderPodp" size="50">
     </h4>
   <h4>Цвет фона</h4>
@@ -345,21 +388,23 @@
   <h5 id="bl"><input type="radio" id="bll" name="color" value="blue"> Blue</h5>
   <h5 id="re"><input type="radio" id="redd" name="color" value="red"> Red</h5>
 
-    <input class="btn1" type="button" value="Сброс">
+    <input class="btn1" type="button" value="Сброс" onclick="uncheckScdSite()">
     <input class="btn1"  style="position: relative; left: 60px;" type="button" value="Показать" onclick="go1()">
 
   </form>
 </div>
-<!--10-11-->
-<!--------->
-<!---->
-<!-- <div class="container">
+<!--10-->
+<!------>
+<!--12-->
+
+<div class="container" id="pageByOrd2">
+  <form id="siteForm">
   <h1>Страничка по заказу</h1>
-  <h4>Художник
+  <h4>Лягушка
     <select style="position: relative; ">
-      <option id="k1">Первый</option>
-      <option id="k2">Второй</option>
-      <option id="k3">Третий</option>
+      <option id="frgFlwr">Лягушка с цветочком</option>
+      <option id="frgOnLf">Лягушка на листе</option>
+      <option id="frgOnBamboo">Лягушка на бамбуке</option>
     </select>
   </h4>
   <h4>Подпись
@@ -367,29 +412,42 @@
 
   </h4>
   <h4>Картинка для фона</h4>
-    <h5 id="frog2.jpg" style="position: relative; left: -25%;"><input type="radio" id="pic1" name="pic1" value="first"> Фон 1</h5>
-    <h5 id="frog3.jpg" style="position: relative; left: -25%;"><input type="radio" id="pic2" name="pic1" value="second"> Фон 2</h5>
-    <h5 id="frog1.jpg" style="position: relative; left: -25%;"><input type="radio" id="pic3" name="pic1" value="third"> Фон 3</h5>
+    <h5 id="frog2.jpg" style="position: relative; left: -25%;"><input type="radio" id="pic1" name="pic1" value="first"> Лес</h5>
+    <h5 id="frog3.jpg" style="position: relative; left: -25%;"><input type="radio" id="pic2" name="pic1" value="second"> Озеро</h5>
+    <h5 id="frog1.jpg" style="position: relative; left: -25%;"><input type="radio" id="pic3" name="pic1" value="third"> Болото</h5>
   
   <h4 style="position: relative;   left:35%; top: -110px">Декорирование текста
-    <h4 id="fr1Combo"><input type="checkbox" style="position:relative; left: -20px;" id="cbDog" name="cbDog"/>Лягуха 1</h4>
-    <h4 id="fr2Combo"><input type="checkbox" style="position:relative; left: -20px;" id="cbFlower" name="cbFlower"/>Лягуха 2</h4>
-    <h4 id="fr3Combo"><input type="checkbox" style="position:relative; left: -20px;" id="cbBouquet" name="cbBouquet"/>Лягуха 3</h4>
+    <h4 id="fr1Combo"><input type="checkbox" style="position:relative; left: -20px;" id="italics" name="italics" >Курсив/нет</h4>
+    <h4 id="fr2Combo"><input type="checkbox" style="position:relative; left: -20px;" id="underline" name="underline" />Подчеркивание/нет</h4>
+    <h4 id="fr3Combo"><input type="checkbox" style="position:relative; left: -20px;" id="boldTxt" name="boldTxt" />Жирный/нет</h4>
   </h4>
-  <input class="btn2" type="button" value="Сброс" >
-  <input class="btn2" type="button" value="Показать" onclick="go1()">
-</div> -->
+  <input class="btn2" type="button" value="Сброс" onclick="uncheckFrstSite()">
+  <input class="btn2" type="button" value="Показать" onclick="go3()">
+</form>
+</div>
 
-<div class="container">
+<!--13-->
+<div class="container" id="anketa">
   <h1>Анкета</h1>
-  <h4>Фамилия: <input style="position: relative; left: -140px;" type="text" id="secName" size="40"></h4>
-  <h4>Имя: <input style="position: relative; left: -140px;" type="text" id="firName" size="40"></h4>
-  <h4>Отчество: <input style="position: relative; left: -140px;" type="text" id="lstName" size="40"></h4>
-  <h4>Год рождения: <input style="position: relative; left: -140px;" type="text" id="birthD" size="40"></h4>
-  <h4>Место рождения: <input style="position: relative; left: -140px;" type="text" id="hometown" size="40"></h4>
-  <h4>Любимое занятие: <input style="position: relative; left: -140px;" type="text" id="FaveHobby" size="40"></h4>
+  <h4>Фамилия: <input style="position: relative; left: -42px;" type="text" id="secName" size="40"></h4>
+  <h4>Имя: <input style="position: relative; left: 1px;" type="text" id="firName" size="40"></h4>
+  <h4>Отчество: <input style="position: relative; left: -40px;" type="text" id="lstName" size="40"></h4>
+  <h4>Год рождения: <input style="position: relative; left: -82px;" type="text" id="birthD" size="40"></h4>
+  <h4>Место рождения: <input style="position: relative; left: -104px;" type="text" id="hometown" size="40"></h4>
+  <h4>Любимое занятие: <input style="position: relative; left: -115px;" type="text" id="FaveHobby" size="40"></h4>
   <h4>Не любимое занятие: <input style="position: relative; left: -140px;" type="text" id="notFaveHobby" size="40"></h4>
   <input class="btn" type="button" value="Сформировать биографию" onclick="go2()">
+</div>
+<!--13-->
+<!------>
+<!--14-->
+<div class="container" id="fairyTaleGen">
+  <h1>Генератор сказок</h1>
+  <h4>Имя героя: <input type="text" id="heroName" size="20"></h4>
+  <h4>Любимое занятие: <input style="position: relative; left: -13.3%;" type="text" id="faveoriteHobby"  size="20"></h4>
+  <h4>Друг героя: <input style="position: relative; left: -0.4%;" type="text" id="heroFriend" size="20"></h4>
+  <h4>Любимый подарок: <input style="position: relative; left: -15%;" type="text" id="favePresent" size="20"></h4>
+  <input class="btn" style="position: relative; left: -2%;" type="button" value="Сгенерировать сказку" onclick="fairyTaleGenerator()">
 </div>
 </body>
 </html>
